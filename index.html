@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SD Negeri Plosobuden - Deket, Lamongan</title>
+<meta name="description" content="Website resmi SD Negeri Plosobuden, Dusun Ploso, Desa Plosobuden, Deket, Lamongan. Pendidikan berkualitas untuk generasi unggul." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #1a56c4;
+    --blue-dark: #0f3a8a;
+    --blue-light: #dbeafe;
+    --red: #dc2626;
+    --red-dark: #991b1b;
+    --red-light: #fee2e2;
+    --yellow: #fef3c7;
+    --yellow-acc: #f59e0b;
+    --white: #ffffff;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-400: #94a3b8;
+    --gray-600: #475569;
+    --gray-800: #1e293b;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+    --shadow-xl: 0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04);
+    --radius: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --font-head: 'Nunito', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --nav-h: 72px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: var(--nav-h);
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    display: flex; align-items: center;
+    padding: 0 2rem;
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: var(--shadow-md); }
+  .nav-inner { max-width: 1200px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-img {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head); font-weight: 900; font-size: 18px; color: white;
+    border: 3px solid var(--red);
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .nav-logo-img img { width: 100%; height: 100%; object-fit: cover; }
+  .nav-logo-text { display: flex; flex-direction: column; }
+  .nav-logo-text span:first-child { font-family: var(--font-head); font-weight: 900; font-size: 15px; color: var(--blue-dark); line-height: 1.2; }
+  .nav-logo-text span:last-child { font-size: 11px; color: var(--gray-600); }
+  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+  .nav-links a {
+    padding: 8px 14px; border-radius: 8px; text-decoration: none;
+    font-size: 14px; font-weight: 600; color: var(--gray-600);
+    transition: all .2s;
+  }
+  .nav-links a:hover { background: var(--blue-light); color: var(--blue); }
+  .nav-links a.active { background: var(--blue); color: white; }
+  .nav-cta {
+    background: var(--red); color: white; padding: 10px 20px; border-radius: 10px;
+    text-decoration: none; font-size: 14px; font-weight: 700;
+    transition: all .2s; border: none; cursor: pointer;
+  }
+  .nav-cta:hover { background: var(--red-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--gray-800); margin: 5px 0; border-radius: 2px; transition: all .3s; }
+  .mobile-menu {
+    display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+    background: white; border-bottom: 1px solid var(--gray-200);
+    padding: 1rem; z-index: 99; box-shadow: var(--shadow-lg);
+    flex-direction: column; gap: 4px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    padding: 12px 16px; border-radius: 10px; text-decoration: none;
+    font-weight: 600; color: var(--gray-800); font-size: 15px;
+  }
+  .mobile-menu a:hover { background: var(--blue-light); color: var(--blue); }
+  @media(max-width:768px) {
+    .hamburger { display: block; }
+    .nav-links, nav .nav-cta { display: none; }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--blue-light); color: var(--blue-dark);
+    font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 50px;
+    text-transform: uppercase; letter-spacing: .05em; margin-bottom: 1rem;
+  }
+  .section-title { font-family: var(--font-head); font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--gray-800); line-height: 1.2; margin-bottom: .75rem; }
+  .section-sub { color: var(--gray-600); font-size: 1.05rem; max-width: 600px; }
+  .text-blue { color: var(--blue); }
+  .text-red { color: var(--red); }
+
+  /* ── HERO ── */
+  #beranda {
+    min-height: 100vh;
+    padding-top: calc(var(--nav-h) + 2rem);
+    background: linear-gradient(160deg, #eef4ff 0%, #fff8f8 50%, #fffdf0 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-blob {
+    position: absolute; border-radius: 50%; filter: blur(80px); opacity: .35; pointer-events: none;
+  }
+  .blob1 { width: 500px; height: 500px; background: var(--blue); top: -100px; right: -100px; }
+  .blob2 { width: 400px; height: 400px; background: var(--red); bottom: -50px; left: -100px; }
+  .blob3 { width: 300px; height: 300px; background: var(--yellow-acc); top: 40%; left: 40%; }
+  #beranda .container { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; min-height: calc(100vh - var(--nav-h)); padding: 3rem 0; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--yellow); border: 1.5px solid var(--yellow-acc);
+    color: #92400e; font-size: 13px; font-weight: 700;
+    padding: 8px 16px; border-radius: 50px; margin-bottom: 1.5rem;
+  }
+  .hero-title { font-family: var(--font-head); font-weight: 900; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.15; margin-bottom: 1.25rem; }
+  .hero-title .highlight { color: var(--blue); position: relative; display: inline-block; }
+  .hero-title .highlight::after {
+    content: ''; position: absolute; bottom: 2px; left: 0; right: 0; height: 6px;
+    background: var(--red); border-radius: 3px; opacity: .3;
+  }
+  .hero-desc { color: var(--gray-600); font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.7; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--blue); color: white; padding: 14px 28px; border-radius: 12px;
+    text-decoration: none; font-weight: 700; font-size: 15px;
+    transition: all .25s; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,86,196,.3); }
+  .btn-secondary {
+    background: white; color: var(--gray-800); padding: 14px 28px; border-radius: 12px;
+    text-decoration: none; font-weight: 700; font-size: 15px;
+    border: 1.5px solid var(--gray-200); transition: all .25s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-secondary:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+  .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2.5rem; }
+  .hero-stat { text-align: center; background: white; border-radius: var(--radius); padding: 1rem; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); }
+  .hero-stat strong { display: block; font-family: var(--font-head); font-size: 1.6rem; font-weight: 900; color: var(--blue); }
+  .hero-stat span { font-size: 12px; color: var(--gray-600); font-weight: 600; }
+
+  /* Hero illustration */
+  .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
+  .hero-illus-wrap {
+    width: 420px; height: 420px; position: relative;
+    background: linear-gradient(135deg, var(--blue-light), #fff0f0);
+    border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+    animation: morphing 8s ease-in-out infinite;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  @keyframes morphing {
+    0%, 100% { border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%; }
+    50% { border-radius: 60% 40% 40% 60% / 30% 60% 40% 70%; }
+  }
+  .hero-school-img {
+    font-size: 120px; line-height: 1;
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero-card {
+    position: absolute; background: white; border-radius: var(--radius); padding: 12px 16px;
+    box-shadow: var(--shadow-lg); font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+    animation: float 4s ease-in-out infinite;
+  }
+  .hero-card:nth-child(2) { top: 20px; right: -20px; animation-delay: 1s; }
+  .hero-card:nth-child(3) { bottom: 40px; left: -20px; animation-delay: 2s; }
+  .hero-card:nth-child(4) { top: 55%; right: -30px; animation-delay: .5s; }
+  .card-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .card-icon.blue { background: var(--blue-light); }
+  .card-icon.red { background: var(--red-light); }
+  .card-icon.yellow { background: var(--yellow); }
+  @media(max-width:900px){
+    #beranda .container { grid-template-columns: 1fr; text-align: center; }
+    .hero-btns { justify-content: center; }
+    .hero-visual { display: none; }
+    .hero-stats { grid-template-columns: repeat(3,1fr); }
+  }
+  @media(max-width:480px){ .hero-stats { grid-template-columns: 1fr; } }
+
+  /* ── FITUR / KEUNGGULAN ── */
+  #keunggulan { background: var(--gray-50); }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .feature-card {
+    background: white; border-radius: var(--radius-lg); padding: 2rem;
+    border: 1px solid var(--gray-200); transition: all .3s;
+    position: relative; overflow: hidden;
+  }
+  .feature-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--blue);
+  }
+  .feature-card:nth-child(even)::before { background: var(--red); }
+  .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+  .feature-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 1rem; }
+  .feature-icon.blue { background: var(--blue-light); }
+  .feature-icon.red { background: var(--red-light); }
+  .feature-icon.yellow { background: var(--yellow); }
+  .feature-card h3 { font-family: var(--font-head); font-weight: 800; font-size: 1.1rem; margin-bottom: .5rem; color: var(--gray-800); }
+  .feature-card p { font-size: .9rem; color: var(--gray-600); }
+
+  /* ── PROFIL ── */
+  #profil .container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .profil-left {}
+  .profil-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  .profil-mini {
+    background: white; border-radius: var(--radius); padding: 1.25rem;
+    border: 1px solid var(--gray-200); text-align: center; box-shadow: var(--shadow-sm);
+  }
+  .profil-mini .num { font-family: var(--font-head); font-size: 2rem; font-weight: 900; color: var(--blue); }
+  .profil-mini span { font-size: 12px; color: var(--gray-600); font-weight: 600; }
+  .profil-right { background: linear-gradient(135deg, var(--blue-light) 0%, #fff0f0 100%); border-radius: var(--radius-xl); padding: 2.5rem; }
+  .visi-misi-tab { display: flex; gap: 8px; margin-bottom: 1.5rem; }
+  .vm-tab {
+    padding: 8px 20px; border-radius: 8px; border: none; cursor: pointer;
+    font-weight: 700; font-size: 14px; transition: all .2s;
+    background: white; color: var(--gray-600);
+  }
+  .vm-tab.active { background: var(--blue); color: white; }
+  .vm-content { display: none; }
+  .vm-content.active { display: block; }
+  .vm-content p { color: var(--gray-700); line-height: 1.8; margin-bottom: .75rem; font-size: .95rem; }
+  .vm-list { list-style: none; }
+  .vm-list li { display: flex; gap: 10px; align-items: flex-start; margin-bottom: .6rem; font-size: .9rem; color: var(--gray-700); }
+  .vm-list li::before { content: '✦'; color: var(--blue); font-size: 12px; margin-top: 3px; flex-shrink: 0; }
+  @media(max-width:768px){ #profil .container { grid-template-columns: 1fr; gap: 2rem; } }
+
+  /* Sambutan */
+  .sambutan-wrap { margin-top: 3rem; background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%); border-radius: var(--radius-xl); padding: 2.5rem; color: white; display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; }
+  .sambutan-photo { width: 90px; height: 90px; border-radius: 50%; background: rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; font-size: 40px; border: 3px solid rgba(255,255,255,.4); flex-shrink: 0; }
+  .sambutan-wrap h3 { font-family: var(--font-head); font-size: 1.2rem; font-weight: 800; margin-bottom: .5rem; }
+  .sambutan-wrap p { font-size: .9rem; opacity: .85; line-height: 1.7; margin-bottom: .75rem; }
+  .sambutan-name { font-weight: 700; opacity: .7; font-size: .85rem; }
+  @media(max-width:600px){ .sambutan-wrap { grid-template-columns: 1fr; text-align: center; } .sambutan-photo { margin: 0 auto; } }
+
+  /* ── PPDB ── */
+  #ppdb { background: var(--gray-50); }
+  .ppdb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; align-items: start; }
+  .ppdb-info { }
+  .req-list { list-style: none; margin: 1.5rem 0; }
+  .req-list li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--gray-200); font-size: .9rem; color: var(--gray-700); }
+  .req-list li span { width: 24px; height: 24px; border-radius: 6px; background: var(--blue-light); color: var(--blue-dark); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+  .ppdb-form-card { background: white; border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-lg); border: 1px solid var(--gray-200); }
+  .ppdb-form-card h3 { font-family: var(--font-head); font-weight: 800; font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--blue-dark); }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 10px 14px; border: 1.5px solid var(--gray-200); border-radius: 10px;
+    font-family: var(--font-body); font-size: 14px; color: var(--gray-800);
+    transition: border-color .2s; outline: none; background: var(--gray-50);
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue); background: white; }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .btn-submit {
+    width: 100%; padding: 14px; background: var(--blue); color: white; border: none;
+    border-radius: 12px; font-family: var(--font-body); font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: all .25s; margin-top: .5rem;
+  }
+  .btn-submit:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,86,196,.3); }
+  .form-note { font-size: 11px; color: var(--gray-400); text-align: center; margin-top: .75rem; }
+  .success-msg { display: none; background: #d1fae5; border: 1px solid #6ee7b7; border-radius: 12px; padding: 1rem; color: #065f46; text-align: center; font-weight: 600; margin-top: 1rem; }
+  @media(max-width:768px){ .ppdb-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+
+  /* ── GURU ── */
+  #guru {}
+  .guru-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .guru-card {
+    background: white; border-radius: var(--radius-lg); padding: 1.5rem 1rem; text-align: center;
+    border: 1px solid var(--gray-200); transition: all .3s; box-shadow: var(--shadow-sm);
+  }
+  .guru-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--blue); }
+  .guru-avatar {
+    width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 1rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 900; font-family: var(--font-head);
+    border: 3px solid var(--blue-light);
+  }
+  .guru-avatar.blue { background: var(--blue-light); color: var(--blue-dark); }
+  .guru-avatar.red { background: var(--red-light); color: var(--red-dark); }
+  .guru-card h4 { font-family: var(--font-head); font-weight: 800; font-size: .95rem; margin-bottom: .35rem; color: var(--gray-800); }
+  .guru-card .mapel { font-size: .8rem; color: var(--gray-600); margin-bottom: .6rem; }
+  .guru-badge {
+    display: inline-block; background: var(--blue-light); color: var(--blue-dark);
+    font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 50px;
+  }
+
+  /* ── EKSKUL ── */
+  #ekskul { background: var(--gray-50); }
+  .ekskul-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .ekskul-card {
+    border-radius: var(--radius-xl); overflow: hidden;
+    box-shadow: var(--shadow-md); transition: all .3s;
+    position: relative;
+  }
+  .ekskul-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+  .ekskul-banner {
+    height: 160px; display: flex; align-items: center; justify-content: center;
+    font-size: 64px; position: relative;
+  }
+  .ekskul-card:nth-child(1) .ekskul-banner { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
+  .ekskul-card:nth-child(2) .ekskul-banner { background: linear-gradient(135deg, var(--blue), #06b6d4); }
+  .ekskul-card:nth-child(3) .ekskul-banner { background: linear-gradient(135deg, var(--yellow-acc), #f97316); }
+  .ekskul-card:nth-child(4) .ekskul-banner { background: linear-gradient(135deg, #10b981, var(--blue)); }
+  .ekskul-body { background: white; padding: 1.25rem; }
+  .ekskul-body h3 { font-family: var(--font-head); font-weight: 800; font-size: 1.1rem; margin-bottom: .4rem; }
+  .ekskul-body p { font-size: .85rem; color: var(--gray-600); line-height: 1.6; }
+  .ekskul-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+  .ekskul-meta span { font-size: 12px; color: var(--gray-500); }
+  .ekskul-badge { background: var(--blue-light); color: var(--blue-dark); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 50px; }
+
+  /* ── GALERI ── */
+  #galeri {}
+  .galeri-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-top: 3rem; }
+  .galeri-item {
+    border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3;
+    cursor: pointer; transition: all .3s; position: relative;
+  }
+  .galeri-item:hover .galeri-overlay { opacity: 1; }
+  .galeri-item:hover { transform: scale(1.03); box-shadow: var(--shadow-xl); }
+  .galeri-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-size: 40px; gap: 8px;
+  }
+  .galeri-placeholder span { font-size: 12px; font-weight: 600; color: white; opacity: .9; }
+  .g1 { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+  .g2 { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+  .g3 { background: linear-gradient(135deg, #f59e0b, #d97706); }
+  .g4 { background: linear-gradient(135deg, #10b981, #059669); }
+  .g5 { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+  .g6 { background: linear-gradient(135deg, #ec4899, #db2777); }
+  .galeri-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.5); opacity: 0; transition: opacity .3s; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; }
+
+  /* ── KONTAK ── */
+  #kontak { background: var(--gray-50); }
+  .kontak-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; align-items: start; }
+  .kontak-info { }
+  .kontak-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+  .kontak-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--blue-light); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .kontak-item h4 { font-weight: 700; font-size: .95rem; margin-bottom: .25rem; }
+  .kontak-item p { font-size: .9rem; color: var(--gray-600); }
+  .wa-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #25d366; color: white; padding: 14px 28px; border-radius: 12px;
+    text-decoration: none; font-weight: 700; font-size: 15px;
+    transition: all .25s; margin-top: 1rem;
+  }
+  .wa-btn:hover { background: #128c7e; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,211,102,.3); }
+  .map-placeholder { background: var(--blue-light); border-radius: var(--radius-xl); height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; border: 2px dashed var(--blue); }
+  .map-placeholder .map-icon { font-size: 48px; }
+  .map-placeholder p { font-size: .9rem; color: var(--blue-dark); font-weight: 600; text-align: center; }
+  @media(max-width:768px){ .kontak-grid { grid-template-columns: 1fr; } }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--blue-dark); color: white; padding: 3rem 2rem 1.5rem;
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+  .footer-brand .logo-text { font-family: var(--font-head); font-weight: 900; font-size: 1.2rem; margin-bottom: .75rem; }
+  .footer-brand p { font-size: .9rem; opacity: .7; line-height: 1.7; }
+  .footer-col h4 { font-family: var(--font-head); font-weight: 800; margin-bottom: 1rem; opacity: .9; font-size: 1rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: .5rem; }
+  .footer-col a { color: white; opacity: .65; text-decoration: none; font-size: .9rem; transition: opacity .2s; }
+  .footer-col a:hover { opacity: 1; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,.15); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 1rem; }
+  .footer-bottom p { font-size: .85rem; opacity: .6; }
+  .footer-bottom .flag { font-size: 1.1rem; }
+  @media(max-width:768px){ .footer-grid { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; text-align: center; } }
+
+  /* ── ANIMATIONS ── */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── DECORATIVE ── */
+  .divider { width: 60px; height: 4px; border-radius: 2px; background: linear-gradient(90deg, var(--blue), var(--red)); margin: 1rem 0 1.5rem; }
+  .divider.center { margin: 1rem auto 1.5rem; }
+
+  /* Scroll to top */
+  #scrollTop {
+    position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px;
+    background: var(--blue); color: white; border: none; border-radius: 50%;
+    cursor: pointer; font-size: 20px; box-shadow: var(--shadow-lg);
+    display: none; align-items: center; justify-content: center;
+    transition: all .2s; z-index: 50;
+  }
+  #scrollTop.visible { display: flex; }
+  #scrollTop:hover { background: var(--blue-dark); transform: translateY(-2px); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#beranda" class="nav-logo">
+      <div class="nav-logo-img">
+        <img src="https://i.ibb.co.com/G3JLCPzH/Logo-SDN-Plosobuden.png"
+             alt="Logo SDN Plosobuden"
+             onerror="this.style.display='none'; this.parentElement.innerHTML='🏫';" />
+      </div>
+      <div class="nav-logo-text">
+        <span>SDN Plosobuden</span>
+        <span>Deket, Lamongan</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#beranda" class="active">Beranda</a></li>
+      <li><a href="#profil">Profil</a></li>
+      <li><a href="#ppdb">PPDB</a></li>
+      <li><a href="#guru">Guru</a></li>
+      <li><a href="#ekskul">Kegiatan</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <a href="#ppdb" class="nav-cta">Daftar Sekarang →</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#beranda">🏠 Beranda</a>
+  <a href="#profil">🏫 Profil Sekolah</a>
+  <a href="#ppdb">📝 PPDB</a>
+  <a href="#guru">👩‍🏫 Guru & Staff</a>
+  <a href="#ekskul">⭐ Kegiatan</a>
+  <a href="#galeri">📷 Galeri</a>
+  <a href="#kontak">📞 Kontak</a>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="beranda">
+  <div class="hero-bg-blob blob1"></div>
+  <div class="hero-bg-blob blob2"></div>
+  <div class="hero-bg-blob blob3"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        ⭐ Sekolah Terbaik di Kecamatan Deket
+      </div>
+      <h1 class="hero-title">
+        Sekolah <span class="highlight">Berkualitas</span><br/>
+        untuk Generasi<br/>
+        <span class="text-red">Unggul & Berprestasi</span>
+      </h1>
+      <p class="hero-desc">
+        SD Negeri Plosobuden berkomitmen mewujudkan pendidikan dasar yang berkualitas,
+        berkarakter, dan berprestasi. Bersama kami, anak Anda tumbuh cerdas dan beriman.
+      </p>
+      <div class="hero-btns">
+        <a href="#ppdb" class="btn-primary">📝 Daftar Sekarang</a>
+        <a href="#profil" class="btn-secondary">🏫 Lihat Profil</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>150+</strong>
+          <span>Siswa Aktif</span>
+        </div>
+        <div class="hero-stat">
+          <strong>15+</strong>
+          <span>Guru Berpengalaman</span>
+        </div>
+        <div class="hero-stat">
+          <strong>20+</strong>
+          <span>Tahun Berdiri</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-illus-wrap">
+        <div class="hero-school-img">🏫</div>
+      </div>
+      <div class="hero-card">
+        <div class="card-icon blue">📚</div>
+        <div>
+          <div style="font-weight:800;font-size:14px;color:#1e293b">Belajar Aktif</div>
+          <div style="font-size:11px;color:#64748b">Kurikulum Merdeka</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="card-icon red">🏆</div>
+        <div>
+          <div style="font-weight:800;font-size:14px;color:#1e293b">Berprestasi</div>
+          <div style="font-size:11px;color:#64748b">Berbagai Lomba</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="card-icon yellow">⭐</div>
+        <div>
+          <div style="font-weight:800;font-size:14px;color:#1e293b">Berkarakter</div>
+          <div style="font-size:11px;color:#64748b">Nilai Islami</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ KEUNGGULAN ═══════════════ -->
+<section id="keunggulan">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-tag">🌟 Keunggulan Kami</div>
+      <h2 class="section-title">Mengapa Memilih<br/><span class="text-blue">SDN Plosobuden?</span></h2>
+      <div class="divider center"></div>
+      <p class="section-sub" style="margin:0 auto">Kami hadir untuk mencetak generasi bangsa yang cerdas, berkarakter, dan siap menghadapi masa depan.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon blue">📖</div>
+        <h3>Kurikulum Merdeka</h3>
+        <p>Menerapkan Kurikulum Merdeka yang berpusat pada siswa untuk mengembangkan potensi dan kreativitas anak.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon red">👩‍🏫</div>
+        <h3>Guru Berkualitas</h3>
+        <p>Tenaga pendidik berpengalaman dan berdedikasi yang selalu siap mendampingi perkembangan setiap siswa.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon yellow">🕌</div>
+        <h3>Pendidikan Karakter</h3>
+        <p>Menanamkan nilai-nilai agama, budi pekerti, dan budaya lokal sebagai pondasi karakter anak bangsa.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon blue">🎭</div>
+        <h3>Ekstrakurikuler Beragam</h3>
+        <p>Tersedia berbagai kegiatan ekskul seperti Tari, Tenis Meja, TIK, dan Qiro'ah untuk bakat siswa.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon red">💻</div>
+        <h3>Fasilitas Memadai</h3>
+        <p>Ruang kelas nyaman, perpustakaan, dan fasilitas penunjang belajar yang lengkap dan bersih.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon yellow">🤝</div>
+        <h3>Lingkungan Kondusif</h3>
+        <p>Suasana belajar yang aman, nyaman, dan menyenangkan bagi seluruh warga sekolah.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PROFIL ═══════════════ -->
+<section id="profil">
+  <div class="container">
+    <div class="profil-left fade-up">
+      <div class="section-tag">🏫 Profil Sekolah</div>
+      <h2 class="section-title">Mengenal <span class="text-blue">SDN Plosobuden</span></h2>
+      <div class="divider"></div>
+      <p style="color:var(--gray-600);line-height:1.8;margin-bottom:1rem">
+        SD Negeri Plosobuden berdiri sebagai institusi pendidikan dasar yang telah melayani masyarakat Desa Plosobuden dan sekitarnya selama lebih dari dua dekade. Berlokasi strategis di Dusun Ploso, Kecamatan Deket, Kabupaten Lamongan, sekolah ini terus berkomitmen menghadirkan pendidikan berkualitas yang terjangkau.
+      </p>
+      <p style="color:var(--gray-600);line-height:1.8">
+        Dengan semangat "Mendidik dengan Hati, Mencetak Generasi Berprestasi", SDN Plosobuden telah menghasilkan ratusan alumni yang berhasil melanjutkan pendidikan ke jenjang yang lebih tinggi dan berkontribusi positif bagi masyarakat.
+      </p>
+      <div class="profil-cards">
+        <div class="profil-mini fade-up">
+          <div class="num">B</div>
+          <span>Akreditasi Sekolah</span>
+        </div>
+        <div class="profil-mini fade-up">
+          <div class="num">6</div>
+          <span>Rombongan Belajar</span>
+        </div>
+        <div class="profil-mini fade-up">
+          <div class="num">4</div>
+          <span>Kegiatan Ekskul</span>
+        </div>
+        <div class="profil-mini fade-up">
+          <div class="num">100%</div>
+          <span>Tingkat Kelulusan</span>
+        </div>
+      </div>
+    </div>
+    <div class="profil-right fade-up">
+      <h3 style="font-family:var(--font-head);font-weight:800;font-size:1.2rem;margin-bottom:1rem;color:var(--blue-dark)">Visi & Misi Sekolah</h3>
+      <div class="visi-misi-tab">
+        <button class="vm-tab active" onclick="switchTab('visi')">🎯 Visi</button>
+        <button class="vm-tab" onclick="switchTab('misi')">🚀 Misi</button>
+      </div>
+      <div class="vm-content active" id="tab-visi">
+        <p style="font-weight:700;font-size:1rem;color:var(--blue-dark);margin-bottom:1rem">
+          "Terwujudnya Siswa yang Beriman, Cerdas, Terampil, Berkarakter, dan Berprestasi dalam Lingkungan yang Kondusif"
+        </p>
+        <p>Visi ini menjadi bintang panduan seluruh kegiatan akademik dan non-akademik di SDN Plosobuden, mewujudkan pendidikan yang holistik dan bermakna bagi setiap siswa.</p>
+      </div>
+      <div class="vm-content" id="tab-misi">
+        <ul class="vm-list">
+          <li>Melaksanakan pembelajaran inovatif berbasis Kurikulum Merdeka</li>
+          <li>Menumbuhkan keimanan dan ketakwaan melalui pembiasaan religius</li>
+          <li>Mengembangkan bakat dan minat siswa melalui kegiatan ekskul</li>
+          <li>Membangun karakter jujur, disiplin, dan bertanggung jawab</li>
+          <li>Menjalin kerjasama aktif antara sekolah, orang tua, dan masyarakat</li>
+          <li>Menciptakan lingkungan belajar yang bersih, aman, dan menyenangkan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="sambutan-wrap fade-up">
+      <div class="sambutan-photo">👨‍💼</div>
+      <div>
+        <h3>Sambutan Kepala Sekolah</h3>
+        <p>"Selamat datang di website resmi SD Negeri Plosobuden. Kami berkomitmen untuk memberikan pendidikan terbaik bagi putra-putri Bapak/Ibu. Bersama guru-guru berdedikasi kami, kami siap membimbing setiap anak untuk tumbuh menjadi pribadi yang cerdas, berkarakter, dan berakhlak mulia. Mari bersama-sama kita wujudkan generasi penerus bangsa yang berprestasi."</p>
+        <div class="sambutan-name">— Kepala Sekolah, SD Negeri Plosobuden</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PPDB ═══════════════ -->
+<section id="ppdb">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:1rem">
+      <div class="section-tag">📝 Pendaftaran Siswa Baru</div>
+      <h2 class="section-title">PPDB Tahun Ajaran <span class="text-blue">2025/2026</span></h2>
+      <div class="divider center"></div>
+      <p class="section-sub" style="margin:0 auto">Daftarkan putra-putri Anda sekarang! Pendaftaran dibuka untuk calon siswa kelas 1 SD.</p>
+    </div>
+    <div class="ppdb-grid">
+      <div class="ppdb-info fade-up">
+        <h3 style="font-family:var(--font-head);font-weight:800;font-size:1.3rem;color:var(--blue-dark);margin-bottom:1rem">📋 Syarat Pendaftaran</h3>
+        <ul class="req-list">
+          <li><span>1</span>Berusia minimal 6 tahun per 1 Juli 2025</li>
+          <li><span>2</span>Fotokopi Akta Kelahiran (2 lembar)</li>
+          <li><span>3</span>Fotokopi Kartu Keluarga (2 lembar)</li>
+          <li><span>4</span>Fotokopi KTP orang tua/wali (2 lembar)</li>
+          <li><span>5</span>Pas foto 3x4 (2 lembar, background merah)</li>
+          <li><span>6</span>Surat Keterangan Sehat dari Puskesmas</li>
+        </ul>
+        <div style="background:var(--yellow);border-radius:var(--radius);padding:1rem;margin-top:1.5rem;border-left:4px solid var(--yellow-acc)">
+          <h4 style="font-weight:800;color:#92400e;margin-bottom:.5rem">📅 Jadwal PPDB</h4>
+          <p style="font-size:.9rem;color:#78350f"><strong>Pendaftaran:</strong> 1 — 30 Juni 2025</p>
+          <p style="font-size:.9rem;color:#78350f"><strong>Pengumuman:</strong> 5 Juli 2025</p>
+          <p style="font-size:.9rem;color:#78350f"><strong>Daftar Ulang:</strong> 7 — 10 Juli 2025</p>
+          <p style="font-size:.9rem;color:#78350f"><strong>Masuk Pertama:</strong> 14 Juli 2025</p>
+        </div>
+        <div style="background:white;border-radius:var(--radius);padding:1rem;margin-top:1rem;border:1px solid var(--gray-200)">
+          <h4 style="font-weight:800;color:var(--blue-dark);margin-bottom:.5rem">📞 Info Pendaftaran</h4>
+          <p style="font-size:.9rem;color:var(--gray-600)">Hubungi sekolah atau WhatsApp kami untuk informasi lebih lanjut mengenai PPDB.</p>
+          <a href="https://wa.me/6281234567890?text=Assalamu'alaikum, saya ingin bertanya tentang PPDB SDN Plosobuden" class="wa-btn" style="margin-top:.75rem;font-size:13px;padding:10px 18px">
+            📲 Tanya via WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="ppdb-form-card fade-up">
+        <h3>📝 Form Pendaftaran Online</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nama Lengkap Calon Siswa *</label>
+            <input type="text" id="nama" placeholder="Contoh: Ahmad Fauzi" />
+          </div>
+          <div class="form-group">
+            <label>Jenis Kelamin *</label>
+            <select id="jk">
+              <option value="">-- Pilih --</option>
+              <option>Laki-laki</option>
+              <option>Perempuan</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Tanggal Lahir *</label>
+            <input type="date" id="tgl" />
+          </div>
+          <div class="form-group">
+            <label>Tempat Lahir *</label>
+            <input type="text" id="tmpat" placeholder="Lamongan" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Nama Orang Tua / Wali *</label>
+          <input type="text" id="ortu" placeholder="Nama ayah/ibu/wali" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>No. WhatsApp *</label>
+            <input type="tel" id="wa" placeholder="08xxxxxxxxxx" />
+          </div>
+          <div class="form-group">
+            <label>Email (opsional)</label>
+            <input type="email" id="email" placeholder="email@contoh.com" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Alamat Lengkap *</label>
+          <textarea id="alamat" placeholder="Dusun, Desa, Kecamatan, Kabupaten..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitForm()">
+          🚀 Kirim Pendaftaran
+        </button>
+        <div class="success-msg" id="successMsg">
+          ✅ Pendaftaran berhasil dikirim! Kami akan menghubungi Anda segera. Terima kasih!
+        </div>
+        <p class="form-note">* Data Anda aman dan hanya digunakan untuk keperluan pendaftaran sekolah.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ GURU ═══════════════ -->
+<section id="guru">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-tag">👩‍🏫 Tim Pendidik</div>
+      <h2 class="section-title">Guru & Staff <span class="text-blue">Kami</span></h2>
+      <div class="divider center"></div>
+      <p class="section-sub" style="margin:0 auto">Tenaga pendidik berdedikasi yang siap membimbing siswa dengan sepenuh hati.</p>
+    </div>
+    <div class="guru-grid">
+      <!-- Guru cards - warna bergantian biru/merah -->
+      <div class="guru-card fade-up">
+        <div class="guru-avatar blue">KS</div>
+        <h4>Kepala Sekolah</h4>
+        <div class="mapel">Azroatul Khusna, S.Pd</div>
+        <div class="guru-badge">Kepala Sekolah</div>
+      </div>
+      <div class="guru-card fade-up">
+        <div class="guru-avatar red">G1</div>
+        <h4>Guru Kelas I</h4>
+        <div class="mapel">Faridah, S.Pd</div>
+        <div class="guru-badge" style="background:var(--red-light);color:var(--red-dark)">Kelas I</div>
+      </div>
+      <div class="guru-card fade-up">
+        <div class="guru-avatar blue">G2</div>
+        <h4>Guru Kelas II</h4>
+        <div class="mapel">Ardian Agustin Pramesti, S.Pd</div>
+        <div class="guru-badge">Kelas II</div>
+      </div>
+      <div class="guru-card fade-up">
+        <div class="guru-avatar red">G3</div>
+        <h4>Guru Kelas III</h4>
+        <div class="mapel">Intan Arya Maharani, S.Pd</div>
+        <div class="guru-badge" style="background:var(--red-light);color:var(--red-dark)">Kelas III</div>
+      </div>
+      <div class="guru-card fade-up">
+        <div class="guru-avatar blue">G4</div>
+        <h4>Guru Kelas IV</h4>
+        <div class="mapel">Muhammad Abiya'la Charirul Muttaqin, S.Pd</div>
+        <div class="guru-badge">Kelas IV</div>
+      </div>
+      <div class="guru-card fade-up">
+        <div class="guru-avatar red">G5</div>
+        <h4>Guru Kelas V</h4>
+        <div class="mapel">Fajar Jauhari Shefryanto, S.Pd</div>
+        <div class="guru-badge" style="background:var(--red-light);color:var(--red-dark)">Kelas V</div>
+      </div>
+      <div class="guru-card fade-up">
+        <div class="guru-avatar blue">G6</div>
+        <h4>Guru Kelas VI</h4>
+        <div class="mapel">Yuninda Fahmayanti, S.Kom</div>
+        <div class="guru-badge">Kelas VI</div>
+      </div>
+      <div class="guru-card fade-up">
+        <div class="guru-avatar red">PA</div>
+        <h4>Guru PAI</h4>
+        <div class="mapel">Hartatik, S.Ag</div>
+        <div class="guru-badge" style="background:var(--red-light);color:var(--red-dark)">PAI</div>
+      </div>
+      <div class="guru-card fade-up">
+        <div class="guru-avatar blue">OR</div>
+        <h4>Guru PJOK</h4>
+        <div class="mapel">Anas Fachul Rozi, S.Pd</div>
+        <div class="guru-badge">PJOK</div>
+      </div>
+      <div class="guru-card fade-up">
+        <div class="guru-avatar red">PS</div>
+        <h4>Penjaga Sekolah</h4>
+        <div class="mapel">Sumantri</div>
+        <div class="guru-badge" style="background:var(--yellow);color:#92400e">Penjaga</div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;color:var(--gray-400);font-size:.85rem">
+      * Data Tenaga Pendidik dan Tenaga Kependidikan 2026.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════ EKSKUL ═══════════════ -->
+<section id="ekskul">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-tag">🎯 Kegiatan Siswa</div>
+      <h2 class="section-title">Ekstrakurikuler <span class="text-blue">Unggulan</span></h2>
+      <div class="divider center"></div>
+      <p class="section-sub" style="margin:0 auto">Mengembangkan bakat dan minat siswa melalui berbagai kegiatan yang menyenangkan dan bermakna.</p>
+    </div>
+    <div class="ekskul-grid">
+      <div class="ekskul-card fade-up">
+        <div class="ekskul-banner">💃</div>
+        <div class="ekskul-body">
+          <h3>Seni Tari</h3>
+          <p>Melestarikan seni budaya lokal melalui tari tradisional dan modern. Siswa belajar keindahan gerak, ekspresi, dan budaya bangsa.</p>
+          <div class="ekskul-meta">
+            <span>📅 Setiap Sabtu</span>
+            <div class="ekskul-badge">Seni Budaya</div>
+          </div>
+        </div>
+      </div>
+      <div class="ekskul-card fade-up">
+        <div class="ekskul-banner">🏓</div>
+        <div class="ekskul-body">
+          <h3>Tenis Meja</h3>
+          <p>Olahraga yang melatih kelincahan, koordinasi, dan sportivitas. Siswa berprestasi dapat mengikuti kompetisi tingkat kecamatan hingga kabupaten.</p>
+          <div class="ekskul-meta">
+            <span>📅 Setiap Rabu</span>
+            <div class="ekskul-badge">Olahraga</div>
+          </div>
+        </div>
+      </div>
+      <div class="ekskul-card fade-up">
+        <div class="ekskul-banner">💻</div>
+        <div class="ekskul-body">
+          <h3>TIK (Komputer)</h3>
+          <p>Memperkenalkan teknologi informasi sejak dini. Siswa belajar penggunaan komputer, mengetik, dan aplikasi dasar secara menyenangkan.</p>
+          <div class="ekskul-meta">
+            <span>📅 Setiap Kamis</span>
+            <div class="ekskul-badge">Teknologi</div>
+          </div>
+        </div>
+      </div>
+      <div class="ekskul-card fade-up">
+        <div class="ekskul-banner">📖</div>
+        <div class="ekskul-body">
+          <h3>Qiro'ah</h3>
+          <p>Seni membaca Al-Qur'an dengan tartil dan lagu yang indah. Memperkuat spiritualitas dan kecintaan siswa terhadap kitab suci Al-Qur'an.</p>
+          <div class="ekskul-meta">
+            <span>📅 Setiap Jumat</span>
+            <div class="ekskul-badge">Keagamaan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ GALERI ═══════════════ -->
+<section id="galeri">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-tag">📷 Galeri Foto</div>
+      <h2 class="section-title">Kegiatan <span class="text-blue">Sekolah</span></h2>
+      <div class="divider center"></div>
+      <p class="section-sub" style="margin:0 auto">Sekilas momen berharga dari berbagai kegiatan dan prestasi siswa SDN Plosobuden.</p>
+    </div>
+    <div class="galeri-grid">
+      <div class="galeri-item fade-up">
+        <div class="galeri-placeholder g1">🎭<span>Pentas Seni</span></div>
+        <div class="galeri-overlay">🔍</div>
+      </div>
+      <div class="galeri-item fade-up">
+        <div class="galeri-placeholder g2">🏓<span>Lomba Tenis Meja</span></div>
+        <div class="galeri-overlay">🔍</div>
+      </div>
+      <div class="galeri-item fade-up">
+        <div class="galeri-placeholder g3">🎓<span>Wisuda Kelas VI</span></div>
+        <div class="galeri-overlay">🔍</div>
+      </div>
+      <div class="galeri-item fade-up">
+        <div class="galeri-placeholder g4">🌿<span>Kerja Bakti</span></div>
+        <div class="galeri-overlay">🔍</div>
+      </div>
+      <div class="galeri-item fade-up">
+        <div class="galeri-placeholder g5">📖<span>Kegiatan Qiro'ah</span></div>
+        <div class="galeri-overlay">🔍</div>
+      </div>
+      <div class="galeri-item fade-up">
+        <div class="galeri-placeholder g6">💻<span>Kelas TIK</span></div>
+        <div class="galeri-overlay">🔍</div>
+      </div>
+      <div class="galeri-item fade-up">
+        <div class="galeri-placeholder g3">🏆<span>Penerimaan Piala</span></div>
+        <div class="galeri-overlay">🔍</div>
+      </div>
+      <div class="galeri-item fade-up">
+        <div class="galeri-placeholder g1">🎉<span>HUT Sekolah</span></div>
+        <div class="galeri-overlay">🔍</div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;color:var(--gray-400);font-size:.85rem">
+      💡 Galeri akan diperbarui secara berkala dengan foto-foto kegiatan terbaru.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════ KONTAK ═══════════════ -->
+<section id="kontak">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-tag">📞 Hubungi Kami</div>
+      <h2 class="section-title">Informasi <span class="text-blue">Kontak</span></h2>
+      <div class="divider center"></div>
+      <p class="section-sub" style="margin:0 auto">Kami siap membantu Anda. Hubungi kami melalui berbagai saluran di bawah ini.</p>
+    </div>
+    <div class="kontak-grid">
+      <div class="kontak-info fade-up">
+        <div class="kontak-item">
+          <div class="kontak-icon">📍</div>
+          <div>
+            <h4>Alamat Sekolah</h4>
+            <p>Dusun Ploso, Desa Plosobuden,<br/>Kecamatan Deket, Kabupaten Lamongan,<br/>Jawa Timur</p>
+          </div>
+        </div>
+        <div class="kontak-item">
+          <div class="kontak-icon">📱</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>Hubungi kami via WhatsApp untuk<br/>informasi lebih lanjut</p>
+          </div>
+        </div>
+        <div class="kontak-item">
+          <div class="kontak-icon">🕐</div>
+          <div>
+            <h4>Jam Operasional</h4>
+            <p>Senin – Sabtu: 07.00 – 13.00 WIB<br/>Minggu & Libur Nasional: Tutup</p>
+          </div>
+        </div>
+        <div class="kontak-item">
+          <div class="kontak-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p>sdnplosobuden@gmail.com</p>
+          </div>
+        </div>
+        <a href="https://wa.me/6281234567890?text=Assalamu'alaikum, saya ingin bertanya tentang SDN Plosobuden" class="wa-btn" target="_blank">
+          <span style="font-size:20px">📲</span> Hubungi via WhatsApp
+        </a>
+      </div>
+      <div class="fade-up">
+        <div class="map-placeholder">
+          <div class="map-icon">🗺️</div>
+          <p>Dusun Ploso, Desa Plosobuden<br/>Kecamatan Deket, Lamongan<br/>Jawa Timur</p>
+          <a href="https://maps.google.com/?q=Desa+Plosobuden+Deket+Lamongan" target="_blank" class="btn-primary" style="font-size:13px;padding:10px 18px;margin-top:8px">
+            🗺️ Buka di Google Maps
+          </a>
+        </div>
+        <div style="background:var(--blue-light);border-radius:var(--radius);padding:1.25rem;margin-top:1rem;text-align:center">
+          <p style="font-size:.9rem;color:var(--blue-dark);font-weight:600">📢 Ikuti Kami di Media Sosial</p>
+          <p style="font-size:.85rem;color:var(--gray-600);margin-top:.5rem">Untuk info terbaru seputar kegiatan sekolah</p>
+          <div style="display:flex;gap:10px;justify-content:center;margin-top:1rem">
+            <div style="background:white;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;color:var(--gray-700);border:1px solid var(--gray-200)">📘 Facebook</div>
+            <div style="background:white;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;color:var(--gray-700);border:1px solid var(--gray-200)">📸 Instagram</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">🏫 SD Negeri Plosobuden</div>
+        <p>Mendidik dengan Hati, Mencetak Generasi Berprestasi. Melayani pendidikan dasar berkualitas di Kecamatan Deket, Lamongan.</p>
+        <p style="margin-top:.75rem;opacity:.5;font-size:.8rem">NSS: xxxx • NPSN: xxxx</p>
+      </div>
+      <div class="footer-col">
+        <h4>Menu Utama</h4>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#profil">Profil Sekolah</a></li>
+          <li><a href="#ppdb">PPDB</a></li>
+          <li><a href="#guru">Guru & Staff</a></li>
+          <li><a href="#ekskul">Ekstrakurikuler</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#ppdb">Info PPDB 2025</a></li>
+          <li><a href="#ekskul">Kegiatan Ekskul</a></li>
+          <li><a href="#kontak">Hubungi Kami</a></li>
+        </ul>
+        <h4 style="margin-top:1.5rem">Lokasi</h4>
+        <p style="opacity:.65;font-size:.85rem;line-height:1.7">
+          Dusun Ploso, Desa Plosobuden<br/>
+          Kecamatan Deket<br/>
+          Kabupaten Lamongan<br/>
+          Jawa Timur
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 SD Negeri Plosobuden. Seluruh hak cipta dilindungi.</p>
+      <p>Dibuat dengan <span style="color:#ef4444">❤</span> untuk pendidikan Indonesia 🇮🇩</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Kembali ke atas">↑</button>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  const scrollTopBtn = document.getElementById('scrollTop');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+      scrollTopBtn.classList.add('visible');
+    } else {
+      navbar.classList.remove('scrolled');
+      scrollTopBtn.classList.remove('visible');
+    }
+    // Active nav
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= 100 && rect.bottom >= 100) {
+        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`.nav-links a[href="#${sec.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  });
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Fade-up animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Visi Misi tab
+  function switchTab(tab) {
+    document.querySelectorAll('.vm-tab').forEach((t, i) => {
+      t.classList.toggle('active', (i === 0 && tab === 'visi') || (i === 1 && tab === 'misi'));
+    });
+    document.getElementById('tab-visi').classList.toggle('active', tab === 'visi');
+    document.getElementById('tab-misi').classList.toggle('active', tab === 'misi');
+  }
+
+  // Form submit
+  function submitForm() {
+    const fields = {
+      nama: document.getElementById('nama').value.trim(),
+      jk: document.getElementById('jk').value,
+      tgl: document.getElementById('tgl').value,
+      tmpat: document.getElementById('tmpat').value.trim(),
+      ortu: document.getElementById('ortu').value.trim(),
+      wa: document.getElementById('wa').value.trim(),
+      alamat: document.getElementById('alamat').value.trim()
+    };
+    if (!fields.nama || !fields.jk || !fields.tgl || !fields.ortu || !fields.wa || !fields.alamat) {
+      alert('⚠️ Mohon lengkapi semua field yang bertanda (*) terlebih dahulu.');
+      return;
+    }
+    // In production: send to Supabase here
+    console.log('Form data:', fields);
+    document.getElementById('successMsg').style.display = 'block';
+    document.querySelectorAll('#ppdb input, #ppdb select, #ppdb textarea').forEach(el => el.value = '');
+    setTimeout(() => document.getElementById('successMsg').style.display = 'none', 6000);
+  }
+</script>
+</body>
+</html>
