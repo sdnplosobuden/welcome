@@ -524,11 +524,11 @@
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
-          <strong>150+</strong>
+          <strong>60+</strong>
           <span>Siswa Aktif</span>
         </div>
         <div class="hero-stat">
-          <strong>15+</strong>
+          <strong>10+</strong>
           <span>Guru Berpengalaman</span>
         </div>
         <div class="hero-stat">
@@ -701,10 +701,10 @@
         </ul>
         <div style="background:var(--yellow);border-radius:var(--radius);padding:1rem;margin-top:1.5rem;border-left:4px solid var(--yellow-acc)">
           <h4 style="font-weight:800;color:#92400e;margin-bottom:.5rem">📅 Jadwal PPDB</h4>
-          <p style="font-size:.9rem;color:#78350f"><strong>Pendaftaran:</strong> 1 — 30 Juni 2025</p>
-          <p style="font-size:.9rem;color:#78350f"><strong>Pengumuman:</strong> 5 Juli 2025</p>
-          <p style="font-size:.9rem;color:#78350f"><strong>Daftar Ulang:</strong> 7 — 10 Juli 2025</p>
-          <p style="font-size:.9rem;color:#78350f"><strong>Masuk Pertama:</strong> 14 Juli 2025</p>
+          <p style="font-size:.9rem;color:#78350f"><strong>Pendaftaran:</strong> 1 — 30 Juni 2026</p>
+          <p style="font-size:.9rem;color:#78350f"><strong>Pengumuman:</strong> 5 Juli 2026</p>
+          <p style="font-size:.9rem;color:#78350f"><strong>Daftar Ulang:</strong> 7 — 10 Juli 2026</p>
+          <p style="font-size:.9rem;color:#78350f"><strong>Masuk Pertama:</strong> 14 Juli 2026</p>
         </div>
         <div style="background:white;border-radius:var(--radius);padding:1rem;margin-top:1rem;border:1px solid var(--gray-200)">
           <h4 style="font-weight:800;color:var(--blue-dark);margin-bottom:.5rem">📞 Info Pendaftaran</h4>
@@ -1073,6 +1073,50 @@
   </div>
 </section>
 
+<!-- KRITIK & SARAN -->
+<section id="kritik-saran" style="background: var(--white); padding: 4rem 2rem;">
+  <div class="container">
+    <div class="fade-up" style="text-align:center; margin-bottom: 2.5rem;">
+      <div class="section-tag">💬 Aspirasi</div>
+      <h2 class="section-title">Kritik & <span class="text-blue">Saran</span></h2>
+      <div class="divider center"></div>
+      <p class="section-sub" style="margin: 0 auto;">Pendapat Anda sangat berarti bagi kami untuk terus meningkatkan kualitas layanan dan pendidikan di SDN Plosobuden.</p>
+    </div>
+    <div class="fade-up" style="max-width: 680px; margin: 0 auto;">
+      <div style="background: white; border-radius: var(--radius-xl); padding: 2.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--gray-200);">
+        <div class="form-group">
+          <label for="ks-nama">Nama <span style="color:var(--gray-400)">(opsional)</span></label>
+          <input type="text" id="ks-nama" placeholder="Nama Anda..." />
+        </div>
+        <div class="form-group">
+          <label for="ks-kategori">Kategori</label>
+          <select id="ks-kategori">
+            <option value="">-- Pilih Kategori --</option>
+            <option value="Fasilitas">🏫 Fasilitas Sekolah</option>
+            <option value="Pengajaran">📚 Kualitas Pengajaran</option>
+            <option value="Pelayanan">🤝 Pelayanan Administrasi</option>
+            <option value="Kegiatan">⭐ Kegiatan Siswa</option>
+            <option value="Lainnya">💡 Lainnya</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="ks-pesan">Kritik / Saran *</label>
+          <textarea id="ks-pesan" rows="5" placeholder="Tuliskan kritik atau saran Anda di sini..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitKritikSaran()">
+          📨 Kirim Kritik & Saran
+        </button>
+        <div id="ks-success" class="success-msg" style="margin-top:1rem;">
+          ✅ Terima kasih! Kritik dan saran Anda telah kami terima. Kami akan terus berusaha meningkatkan kualitas pelayanan.
+        </div>
+        <p style="font-size:11px; color:var(--gray-400); text-align:center; margin-top:.75rem;">
+          🔒 Informasi Anda dijaga kerahasiaannya
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -1080,7 +1124,7 @@
       <div class="footer-brand">
         <div class="logo-text">🏫 SD Negeri Plosobuden</div>
         <p>Mendidik dengan Hati, Mencetak Generasi Berprestasi. Melayani pendidikan dasar berkualitas di Kecamatan Deket, Lamongan.</p>
-        <p style="margin-top:.75rem;opacity:.5;font-size:.8rem">NSS: xxxx • NPSN: xxxx</p>
+        <p style="margin-top:.75rem;opacity:.5;font-size:.8rem">NSS: xxxx • NPSN: 20505934</p>
       </div>
       <div class="footer-col">
         <h4>Menu Utama</h4>
@@ -1111,7 +1155,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 SD Negeri Plosobuden. Seluruh hak cipta dilindungi.</p>
+      <p>© 2026 SD Negeri Plosobuden. Seluruh hak cipta dilindungi.</p>
       <p>Dibuat dengan <span style="color:#ef4444">❤</span> untuk pendidikan Indonesia 🇮🇩</p>
     </div>
   </div>
@@ -1187,6 +1231,28 @@
     });
     document.getElementById('tab-visi').classList.toggle('active', tab === 'visi');
     document.getElementById('tab-misi').classList.toggle('active', tab === 'misi');
+  }
+
+  // Kritik & Saran submit
+  function submitKritikSaran() {
+    const pesan = document.getElementById('ks-pesan').value.trim();
+    const kategori = document.getElementById('ks-kategori').value;
+    if (!pesan) {
+      alert('⚠️ Mohon tuliskan kritik atau saran Anda terlebih dahulu.');
+      return;
+    }
+    if (!kategori) {
+      alert('⚠️ Mohon pilih kategori terlebih dahulu.');
+      return;
+    }
+    // In production: send to backend/Supabase here
+    const nama = document.getElementById('ks-nama').value.trim() || 'Anonim';
+    console.log('Kritik & Saran:', { nama, kategori, pesan });
+    document.getElementById('ks-success').style.display = 'block';
+    document.getElementById('ks-nama').value = '';
+    document.getElementById('ks-kategori').value = '';
+    document.getElementById('ks-pesan').value = '';
+    setTimeout(() => document.getElementById('ks-success').style.display = 'none', 6000);
   }
 
   // Form submit
